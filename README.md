@@ -6,7 +6,7 @@ Pomodoro Crush is a gamified productivity tool meant for crushing larger tasks i
 
 In other words, it's a hybrid Pomodoro/Todo App made in Create React App.
 
-**How does one unleash the power of Pomodoro Crush?
+**How does one unleash the power of Pomodoro Crush?**
 
 Create tasks and decide how much time (Pomodori) you would like to apply to that task. Then run the timer when you are focusing on that task. Do not allow yourself to lose focus for this session (default 25mins). This app excels at organizing and managing larger tasks that need to be broken down into shorter sessions (coding, writing, research, administrative tasks, etc...) while allowing the user to focus  on their work, thus improving the quality. 
 
