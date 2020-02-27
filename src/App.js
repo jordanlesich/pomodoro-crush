@@ -17,7 +17,7 @@ function App() {
   
  
 
-  //refactor to hook.
+
  const initialOptions = JSON.parse(window.localStorage.getItem('options')) || {
     pomTime: 25,
     breakTime: 5,
