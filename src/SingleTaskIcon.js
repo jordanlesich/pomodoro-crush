@@ -14,7 +14,9 @@ const useStyles = makeStyles({
         paddingLeft: '0px',
         cursor: 'pointer',
         '& svg' : {
-            color: props => props.isSelected? '#d1d1d0' : 'rgba(13,14,16,1)',
+
+            color: '#d1d1d0',
+            opacity: props => props.isSelected? '1' : '0',
             transition: 'ease-in-out 250ms',
             [sizes.up("lg")] : {
                 fontSize: '2rem'
@@ -25,14 +27,14 @@ const useStyles = makeStyles({
 
 const SingleTaskIcon = (props) => {
 
-    const {isSelected, togglePlay, isRunning} = props;
+    const {isSelected, toggleIsRunning, isRunning} = props;
     const classes = useStyles(props)
 
     const handleClick = e => {
         if(isSelected){
         //This is deliberate. I want to propogate click if not selected. 
          e.stopPropagation()
-         togglePlay()
+         toggleIsRunning()
          } 
          else{
              return

@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
@@ -29,7 +28,13 @@ const SingleTaskMenu = props => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const classes = useStyles(props)
-    const {editTask, deleteTask, handleSubmit, isForm, isRunning} = props;
+    const {
+        editTask, 
+        deleteTask, 
+        handleSubmit, 
+        isForm, 
+        isRunning} 
+        = props;
 
 
     const handleMenuClick = e => {

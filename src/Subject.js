@@ -26,8 +26,8 @@ const Subject = props => {
     return(
         <div className={classes.root}>
             {topics.map((topic, index ) => (
-                <div className={classes.topicSpace}>
-                <h2 className={classes.topicTitle}>{topic}</h2>
+                <div className={classes.topicSpace} key={index}>
+                <h2 className={classes.topicTitle} key={index}>{topic}</h2>
                 {questions[index].map((question, i) => (
                     <QuestionAnswer 
                     question={question}

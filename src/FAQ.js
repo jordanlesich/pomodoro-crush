@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import {faqData} from './FAQ_Data'
 import Subject from './Subject'
+import MenuButton from './MenuButton'
 import sizes from './sizes'
 
 import SimpleBar from 'simplebar-react';
@@ -15,11 +16,13 @@ const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: theme.backgroundColor,
+        justifyContent: 'center',
+        alignSelf: 'center',
         color: '#f6f6f6',
         height: '100%',
-        width:'100%',
-        marginTop: '5rem',
+        width: '100%',
+        maxWidth:'1000px',
+        
         [sizes.up('md')]:{
             maxWidth: '767px',
             fontSize: '1.4rem'
@@ -64,12 +67,18 @@ const useStyles = makeStyles(theme => ({
     },
 
     mainSection: {
+        display: 'flex',
+        justifyContent: 'end',
         height: '53vh',
         [sizes.up('sm')]:{
             height: '62vh'
         }
+    },
+    menuButton: {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'start'   
     }
-    
 })
 )
 
@@ -78,7 +87,6 @@ const FAQ = props => {
 
     const [tab, setTab] = useState(0);
     const selectedData = faqData[tab]
-
 
     const handleChange = (e, newTab) => {
         setTab(newTab);
@@ -93,6 +101,7 @@ const FAQ = props => {
     return(
        
         <div className={classes.root}>
+            <div className={classes.MenuButton}><MenuButton /></div>
             <h1 className={classes.title}>FAQs</h1>
            <div>
                <Tabs
@@ -114,7 +123,6 @@ const FAQ = props => {
             autoHide={false}
             >
            <Subject 
-
              topics={subjectTopics}
              questions={subjectQuestions}
              answers={subjectAnswers}

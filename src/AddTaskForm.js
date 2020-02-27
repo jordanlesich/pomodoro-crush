@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import useInputState from './Hooks/UseInputState'
+import React, {useContext, useState, useEffect} from 'react';
+import useInputState from './Hooks/UseInputState';
+import {TasksContext} from './contexts/task.context'
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -80,10 +81,15 @@ function AddTaskForm(props) {
   const [open] = useState(true);
   const [taskName, setTaskName, resetTaskName] = useInputState('');
   const [poms, setPoms, resetPoms ] = useInputState('');
+
+  const {addTask} = useContext(TasksContext)
   
   const fullScreen = useMediaQuery(theme.breakpoints.down('xs'));
 
-  const {closeModal, addTask} = props;
+  const {
+    closeModal, 
+  } = props;
+
 
 
   useEffect(() => {

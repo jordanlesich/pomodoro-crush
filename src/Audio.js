@@ -7,14 +7,16 @@ import {playSFX} from './SFXPlayer'
 const useStyles = makeStyles({
         root:{
            display: 'flex',
-           flexDirection: 'column' 
+           flexDirection: 'column', 
+           alignItems: 'center'
+          
         },
-        
         inputSection : {
-            margin: '2rem 0 0 3rem',
+            marginTop: '2rem',
             height: '6rem',
             display: 'flex',
             flexDirection: 'column',
+
         },
         label : {
             fontSize: '24px',
@@ -28,8 +30,8 @@ const useStyles = makeStyles({
         submitButton:{
             justifySelf: 'start',
             width:'10rem',
-            margin: '2rem 0 0 3rem',
-            border: '2px solid #3f51b5',
+            marginTop: '2rem',
+            border: '1px solid #3f51b5',
             '& .MuiButton-label' : {
                 color: '#3f51b5',
                 fontSize: '24px',
@@ -37,6 +39,7 @@ const useStyles = makeStyles({
             },
         },
         select:{
+            appearance : 'none',
             width: '10rem',
             borderRadius: '.5rem',
             padding: '.5rem 0 .5rem 0',
@@ -89,7 +92,7 @@ const Audio = props => {
         setBreakSound(e.target.value);
     }
 
-    const isSaved = (pomSound!==options.pomSound || breakSound!==options.breakSound)
+    const isNotSaved = (pomSound!==options.pomSound || breakSound!==options.breakSound)
 
     return(
         <div>
@@ -132,10 +135,10 @@ const Audio = props => {
                 </select>
                 <Divider className={classes.bottomDivider}/>
             </div>
-            {isSaved &&
-            <Button className={classes.submitButton} variant="outlined" type='submit' >
+            
+            <Button className={classes.submitButton} variant="outlined" type='submit' disabled={!isNotSaved}>
                 Save
-            </Button>}
+            </Button>
             </form>
         </div>
     )

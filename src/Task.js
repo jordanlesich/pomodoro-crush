@@ -1,4 +1,6 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {TasksContext} from './contexts/task.context'
+import {SessionContext} from './contexts/session.context'
 import SingleTaskIcon from './SingleTaskIcon'
 import SingleTaskItem from './SingleTaskItem'
 import SingleTaskMenu from './SingleTaskMenu'
@@ -12,7 +14,6 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     
         root: {
-            // backgroundColor: 'rgba(0,0,0,.1)',
             padding: '3px',
             '& .MuiListItem-root.Mui-selected' : {
                 backgroundColor: 'rgba(255,255,255,0.1)'
@@ -34,6 +35,9 @@ const Task = props =>{
     const [isForm, toggleForm] = useToggle(false)
     const [taskName, setTaskName] = useInputState(`${props.task}`)
 
+    const {taskSelected, changeTaskSelected, deleteTask, changeTaskName} = useContext(TasksContext)
+    const {isRunning, toggleIsRunning} = useContext(SessionContext)
+
     const classes = useStyles(props)
     const {
         pomTotal, 
@@ -41,15 +45,7 @@ const Task = props =>{
         task, 
         pomsCompleted, 
         index, 
-        changeTask, 
-        selected, 
-        changeTaskName, 
-        deleteTask, 
-        togglePlay, 
-        isRunning
                 } = props;
-
-
 
     const handleListItemClick = e =>{
         e.stopPropagation();
@@ -59,19 +55,20 @@ const Task = props =>{
         }
         else{
         //starts clock if already selected (double-click)
-                if (index === selected){
-            togglePlay(true);
+                if (index === taskSelected){
+            toggleIsRunning();
             }
             //changes what is selected
             else{
-            changeTask(index);
+            changeTaskSelected(index);
             }
         }
         
     }
 
     const handleDelete = () =>{
-        deleteTask(id, pomTotal)
+        deleteTask(id)
+        //Create method for point deduction HERE
     }
 
      const handleSubmit = e => {
@@ -81,7 +78,7 @@ const Task = props =>{
          toggleForm()
      }
 
-    const isSelected = selected === index;
+    const isSelected = taskSelected === index;
     
     
     return(
@@ -96,7 +93,7 @@ const Task = props =>{
     >
         <SingleTaskIcon 
         isSelected={isSelected}
-        togglePlay={togglePlay}
+        toggleIsRunning={toggleIsRunning}
         isRunning={isRunning}
         />
         <SingleTaskItem 

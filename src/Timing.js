@@ -8,13 +8,15 @@ import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 const useStyles = makeStyles({
     root:{
        display: 'flex',
-       flexDirection: 'column' 
+       flexDirection: 'column' ,
+       alignItems: 'center'
     },
     inputSection : {
-        margin: '2rem 0 0 3rem',
+        marginTop: '2rem',
         height: '6rem',
         display: 'flex',
         flexDirection: 'column',
+        alignItems: 'center'
     },
     label : {
         fontSize: '24px'
@@ -27,8 +29,8 @@ const useStyles = makeStyles({
     submitButton:{
         justifySelf: 'start',
         width:'10rem',
-        margin: '2rem 0 0 3rem',
-        border: '2px solid #3f51b5',
+        marginTop: '2rem',
+        border: '1px solid #3f51b5',
         '& .MuiButton-label' : {
             color: '#3f51b5',
             fontSize: '24px',
@@ -85,7 +87,7 @@ const Timing = props => {
         saveOptions(newTime)
     }
 
-    const isSaved = (pomTime!==options.pomTime || breakTime!==options.breakTime) 
+    const isNotSaved = (pomTime!==options.pomTime || breakTime!==options.breakTime) 
     
 
     return(
@@ -126,9 +128,9 @@ const Timing = props => {
                 />
                 <Divider className={classes.bottomDivider}/>
             </div>
-            {isSaved && <Button className={classes.submitButton} variant="outlined" type='submit' >
+            <Button className={classes.submitButton} variant="outlined" type='submit' disabled={!isNotSaved}>
                 Save
-            </Button>}
+            </Button>
             </ValidatorForm>
         </div>
     )

@@ -4,6 +4,8 @@ import sizes from './sizes'
 
 const useStyles = makeStyles({
     root: {
+      justifySelf: 'center',
+      
       [sizes.up("sm")]: {
         width: '300px',
         height: 'auto',
@@ -13,9 +15,18 @@ const useStyles = makeStyles({
         height: 'auto',
       },
       [sizes.up("lg")]: {
-        width: '490px',
+        width: '420px',
         height: 'auto',
+        gridRow: '3',
+        gridColumn: '1',
+        justifySelf: 'flex-end',
+        marginRight: '4rem'
+      },
+      [sizes.up("xl")]: {
+        width: '460px',
+        marginRight: '4rem'
       }
+      
     },
     circleBackground: {
         fill: 'none',

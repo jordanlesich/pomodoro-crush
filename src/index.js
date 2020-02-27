@@ -4,10 +4,14 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {GameStateProvider } from './contexts/gameState.context';
 
 ReactDOM.render(
+
     <BrowserRouter>
-    <App />
+        <GameStateProvider>
+            <App />
+        </GameStateProvider>
     </BrowserRouter>, 
     document.getElementById('root'));
 
