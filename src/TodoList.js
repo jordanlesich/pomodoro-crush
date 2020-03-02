@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        height: '32%',
+        // height: '32%',
         marginTop: '1rem',
         [sizes.up("lg")]: {
             gridRow: '3/5',
@@ -32,8 +32,17 @@ const useStyles = makeStyles({
         padding: '0',
     },
     mainList: {
-        height: '32vh',
-       
+        height: '23vh',
+        [sizes.vertical("sm")]: {
+          height: '26vh',  
+        },
+        [sizes.vertical("md")]: {
+          height: '28vh',  
+        },
+        [sizes.vertical("lg")]: {
+            height: '31vh'
+        },
+
         [sizes.up("sm")]: {
             maxWidth: '500px',
             alignSelf: 'center',
@@ -42,7 +51,7 @@ const useStyles = makeStyles({
         [sizes.up("lg")]: {
             maxWidth: '600px',
             width: '100%',
-            height: '50vh',
+            height: '40vh',
         }, 
     },
     addTaskPanel: {
@@ -53,14 +62,21 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         [sizes.up('lg')]: {
-            transform: 'translateY(-4rem)',
+            transform: 'translateY(-2rem)',
+            [sizes.vertical('lg')]: {
+                transform: 'translateY(-4rem)',
+                fontSize: '20rem'
+            }
         },
        '& svg': {
            color: '#3f51b5',
            opacity: '0.5',
            fontSize: '10rem',
            [sizes.up('lg')]: {
-               fontSize: '20rem',
+               fontSize: '15rem',
+               [sizes.vertical('lg')]: {
+                   fontSize: '20rem'
+               }
            },
            transition: 'ease-in-out .1s',
            '&:hover' : {

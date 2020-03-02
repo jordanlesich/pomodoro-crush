@@ -17,11 +17,16 @@ const useStyles = makeStyles({
   root:{
     '& .MuiDialog-paperWidthSm' : {
       background: '#0d0e17',
-      width: '550px'
+      
     },
 
     '& .MuiDialog-paperFullScreen' : {
       background: '#0d0e17',
+      height: '100vh',
+      width: '100vh',
+      maxWidth: '100vw',
+      padding: '0',
+      margin: '0'
     },
   },
   label : {

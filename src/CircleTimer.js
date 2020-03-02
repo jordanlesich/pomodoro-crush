@@ -15,15 +15,19 @@ const useStyles = makeStyles({
         height: 'auto',
       },
       [sizes.up("lg")]: {
-        width: '420px',
+        width: '400px',
         height: 'auto',
         gridRow: '3',
         gridColumn: '1',
         justifySelf: 'flex-end',
-        marginRight: '4rem'
+        marginRight: '4rem',
+
       },
       [sizes.up("xl")]: {
-        width: '460px',
+        width: '410px',
+        [sizes.vertical('lg')]: {
+          width: '460px',
+        },
         marginRight: '4rem'
       }
       

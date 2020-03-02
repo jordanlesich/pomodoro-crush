@@ -9,14 +9,16 @@ import AddTaskButton from './AddTaskButton'
 import MenuButton from './MenuButton'
 import sizes from './sizes'
 
+
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     root: {
       display: 'flex',
       flexDirection: 'column',
+      backgroundColor: '#0d0e17',
       height: '100%',
-      width: '100%',
+      width: '100vw',
       color: '#f6f6f6',
       alignItems: 'center',
       [sizes.up("lg")]: {

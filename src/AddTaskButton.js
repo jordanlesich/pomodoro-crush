@@ -19,11 +19,16 @@ const useStyles = makeStyles({
             justifySelf: 'flex-end',
             alignSelf: 'flex-start',
             marginTop: '1.7rem',
-            transform: 'translateX(-10rem)'
+            transform: 'translateX(-9rem)',
+            [sizes.vertical('lg')]:{
+                marginTop: '-2rem'
+            }
           },
         [sizes.up('xl')]: {
-            transform: 'translateX(-9rem)',
-            marginTop: '0'
+            [sizes.vertical('lg')]:{
+                transform: 'translateX(-9rem)',
+                marginTop: '0'
+            }
         },
         '& svg' : {
             color: '#f6f6f6',
@@ -41,9 +46,7 @@ const useStyles = makeStyles({
     },
     plusIcon: {
         padding: '0',
-        [sizes.up("lg")]: {
         
-        }
     }
 })
 

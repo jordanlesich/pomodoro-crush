@@ -3,21 +3,29 @@ import useLocalStorageState from './Hooks/UseLocalStorageState'
 import { TasksProvider } from './contexts/task.context';
 import { SessionProvider } from './contexts/session.context';
 import WorkSpace from './WorkSpace'
-import Page from './Page'
+import Div100vh from 'react-div-100vh'
 import SideMenu from './SideMenu';
 import FAQ from './FAQ'
 import Options from './Options'
 
 import {Route, Switch} from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
 
 import './App.css';
 
 
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    justifyContent: 'center'
+  }
+
+})
+
 function App() {
   
- 
+ const classes = useStyles()
 
-  //refactor to hook.
  const initialOptions = JSON.parse(window.localStorage.getItem('options')) || {
     pomTime: 25,
     breakTime: 5,
@@ -33,27 +41,21 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={classes.root}>
       <SessionProvider>
-        <Page>
           <SideMenu />
-        </Page>
           <Switch>
               <Route exact path="/faq">
-                <Page>
                   <FAQ />
-                </Page>
               </Route>
               <Route exact path="/options">
-                <Page>
                   <Options saveOptions={saveOptions} options={options}/>
-                </Page>
               </Route>
               <Route path="/">
                 <TasksProvider>
-                  <Page>
+                  <Div100vh>
                     <WorkSpace options={options}/>
-                  </Page>
+                  </Div100vh>
                 </TasksProvider>
               </Route>
           </Switch>

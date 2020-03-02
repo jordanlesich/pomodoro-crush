@@ -1,11 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  
+  background-color: #0d0e17;
+  overflow: hidden;
+  /* margin: 0; */
+  /* padding: 0;
+  position: relative;
+  top: 0;
+  left: 0; */
   font-family: 'Roboto Condensed', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100vh;
 }
 
 code {

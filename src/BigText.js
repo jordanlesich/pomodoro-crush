@@ -21,6 +21,9 @@ const useStyles = makeStyles({
         fontWeight: '100',
         fontSize: '2rem',
         margin: '0',
+        [sizes.vertical("sm")]: {
+            margin: '1rem 0 1rem 0'
+        },
         [sizes.up("sm")]: {
             fontSize: '2.5rem',
         },                    

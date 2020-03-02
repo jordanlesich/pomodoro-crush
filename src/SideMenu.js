@@ -44,7 +44,6 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         alignItems: 'center',
         maxHeight: '40%',
-        // justifyContent: 'flex-start',
         marginTop: '1rem',
     },
     listArrow: {

@@ -5,12 +5,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {GameStateProvider } from './contexts/gameState.context';
+import Div100vh from 'react-div-100vh'
+
 
 ReactDOM.render(
 
     <BrowserRouter>
         <GameStateProvider>
-            <App />
+            <Div100vh>
+                <App /> 
+            </Div100vh>
         </GameStateProvider>
     </BrowserRouter>, 
     document.getElementById('root'));

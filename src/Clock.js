@@ -30,15 +30,16 @@ const useStyles = makeStyles({
             gridColumn: '1',
             justifySelf: 'flex-end',
             alignSelf: 'flex-start',
-            
-            transform: "translateX(-16.5rem)"
-        },
-        [sizes.up("xl")]: {
-            transform: "translateX(-16.5rem)"
+            transform: "translateX(-16.5rem)",
+            [sizes.vertical("lg")]: {
+            transform: "translate(-16.5rem, -3.7rem)",
+            }
         },
         [sizes.up('xl')]: {
-            marginTop: '-1.7rem',
-            transform: 'translate(-20.5rem)'
+            [sizes.vertical('lg')]: {
+                marginTop: '-1.7rem',
+                transform: 'translate(-20.5rem)'
+            }
         },
 }
 })
@@ -96,8 +97,9 @@ const Clock = (props) => {
           if(isPom){
               const currentTask = tasks[taskSelected]
               const isTaskFinished = currentTask.pomTotal === currentTask.pomsCompleted + 1
+
               setTime(breakSeconds)
-              pomComplete(currentTask, isTaskFinished, tasks.length)
+              pomComplete(currentTask, isTaskFinished)
               playSFX(options.pomSound)
               toggleIsPom()
             }  
@@ -106,9 +108,7 @@ const Clock = (props) => {
                 playSFX(options.breakSound)
                 toggleIsPom();
             }
-        }
-        
-    
+        }    
     
     const percentageFinished =  100 - (isPom? time / pomSeconds * 100 : time / breakSeconds * 100)  
     const displayText =  tasks.length > 0? `${strMinutes}:${strSeconds}` : '';
@@ -124,6 +124,7 @@ const Clock = (props) => {
             fontSize={'4.2rem'}
             color={color}
         />
+       
         <span className={classes.button}>
            {tasks.length > 0 && <PlayButton setTime={setTime}/>}
         </span>
