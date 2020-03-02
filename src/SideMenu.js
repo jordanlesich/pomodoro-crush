@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {SessionContext} from './contexts/session.context'
 import {Link, useHistory } from 'react-router-dom';
-import tomato from './tomato.svg'
+import tomato from './imgs/tomato.svg'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';

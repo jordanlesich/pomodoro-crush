@@ -11,13 +11,12 @@ import Options from './Options'
 import {Route, Switch} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
 
-import './App.css';
-
 
 const useStyles = makeStyles({
   root: {
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    backgroundColor:'#0d0e17'
   }
 
 })
@@ -26,10 +25,6 @@ function App() {
   
  const classes = useStyles()
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8e9c7943589f7c1a00aec62e90b301ff69ba78d1
  const initialOptions = JSON.parse(window.localStorage.getItem('options')) || {
     pomTime: 25,
     breakTime: 5,
